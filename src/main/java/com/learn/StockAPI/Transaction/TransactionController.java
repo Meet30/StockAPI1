@@ -16,9 +16,9 @@ public class TransactionController {
     public List<Transaction> getAllTransaction(){
         return transactionService.getAllTransaction();
     }
-    @RequestMapping(method = RequestMethod.POST, value = "/transactions/{id}")
-    public Transaction getTransaction(@PathVariable String id){
-        return transactionService.getTransaction(id);
+    @RequestMapping(method = RequestMethod.GET, value = "/transactions/{transaction_id}")
+    public Transaction getTransaction(@PathVariable int transaction_id){
+        return transactionService.getTransaction(transaction_id);
     }
 
     // POST REQUEST
@@ -28,14 +28,14 @@ public class TransactionController {
     }
 
     // DELETE REQUEST
-    @RequestMapping(method = RequestMethod.DELETE, value = "/transactions/{id}")
-    public void deleteTransaction(@PathVariable String id){
-        transactionService.deleteTransaction(id);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/transactions/{transaction_id}")
+    public void deleteTransaction(@PathVariable int transaction_id){
+        transactionService.deleteTransaction(transaction_id);
     }
 
     // PUT REQUEST
-    @RequestMapping(method = RequestMethod.PUT, value = "/transactions/{id}")
-    public  void updateTransaction(@RequestBody Transaction transaction, @PathVariable String id){
-        transactionService.updateTransaction(transaction,id);
+    @RequestMapping(method = RequestMethod.PUT, value = "/transactions/{transaction_id}")
+    public  void updateTransaction(@RequestBody Transaction transaction, @PathVariable int transaction_id){
+        transactionService.updateTransaction(transaction,transaction_id);
     }
 }

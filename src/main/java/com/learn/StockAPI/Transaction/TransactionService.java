@@ -20,20 +20,20 @@ public class TransactionService {
         return transactionList;
     }
 
-    public Transaction getTransaction(String id){
-        return transactionRepository.findById(id).get();
+    public Transaction getTransaction(int transaction_id){
+        return transactionRepository.findById(transaction_id).get();
     }
 
     public void addTransaction(Transaction transaction){
         transactionRepository.save(transaction);
     }
 
-    public void deleteTransaction(String id){
-        transactionRepository.deleteById(id);
+    public void deleteTransaction(int transaction_id){
+        transactionRepository.deleteById(transaction_id);
     }
 
-    public void updateTransaction(Transaction transaction, String id){
-        deleteTransaction(id);
+    public void updateTransaction(Transaction transaction, int transaction_id){
+        deleteTransaction(transaction_id);
         addTransaction(transaction);
     }
 }
