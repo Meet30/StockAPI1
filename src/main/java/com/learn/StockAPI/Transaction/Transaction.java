@@ -16,14 +16,51 @@ public class Transaction {
     @Column(name = "quantity")
     private int quantity;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_stock_id")
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Stock stock;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_user_id")
+    @ManyToOne
     private User user;
 
     public Transaction(){}
 
+    public Transaction(int transaction_id, int quantity, Stock stock, User user) {
+        this.transaction_id = transaction_id;
+        this.quantity = quantity;
+        this.stock = stock;
+        this.user = user;
+    }
+
+    public int getTransaction_id() {
+        return transaction_id;
+    }
+
+    public void setTransaction_id(int transaction_id) {
+        this.transaction_id = transaction_id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
